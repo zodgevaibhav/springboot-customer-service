@@ -13,12 +13,9 @@ public class AddCustomerService {
 	@Autowired
 	private CustomerRepository customerRepo;
 	
-	@Autowired
-	private AddCustomerResponse addCustomerResponse;
-	
 	public AddCustomerResponse addCustomer(AddCustomer addCustomerRequest)
 	{
-		
+		AddCustomerResponse addCustomerResponse = new AddCustomerResponse();
 	try
 	{
 		Customer customer = new Customer(); 
@@ -32,6 +29,7 @@ public class AddCustomerService {
 				.setStatus("ACTIVE");
 		
 		 customer = customerRepo.save(customer);
+		
 		
 		addCustomerResponse.setCustomerCode(customer.getCustomerCode())
 							.setCustomerId(customer.getCustomerId())
