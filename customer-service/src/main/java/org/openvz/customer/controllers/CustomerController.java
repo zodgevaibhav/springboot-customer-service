@@ -20,6 +20,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
@@ -37,8 +42,8 @@ public class CustomerController {
 	SearchCustomerService searchCustomerService;
 	
 	@PostMapping(path="/AddCustomer", consumes= {"application/json","application/xml"}, produces= {"application/json","application/xml"})
-	public AddCustomerResponse addCustomer(@RequestBody AddCustomer addCustomerRequest)
-	{
+	public AddCustomerResponse addCustomer(@RequestBody AddCustomer addCustomerRequest) throws JsonProcessingException
+	{	
 		return addCustomerService.addCustomer(addCustomerRequest);
 	}
 	@PostMapping(path="/UpdateCustomer", consumes= {"application/json","application/xml"}, produces= {"application/json","application/xml"})
