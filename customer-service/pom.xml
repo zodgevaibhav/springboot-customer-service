@@ -16,7 +16,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>2020.0.1</spring-cloud.version>
-		<gcp.project>terraform-learning</gcp.project>
+		<gcp.projectId>terraform-learning-310418</gcp.projectId>
 		<appengine.config.path>src/main/config</appengine.config.path>
 		<maven.test.skip>false</maven.test.skip>
 	</properties>
@@ -64,7 +64,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
 				<version>1.4.13</version>
@@ -85,7 +85,7 @@
 						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
 					</buildArgs>
 				</configuration>
-			</plugin>
+			</plugin> -->
 
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
@@ -94,7 +94,7 @@
 				<configuration>
 					<enableJarClasses>false</enableJarClasses>
 					<project>
-						${gcp.project}
+						${gcp.projectId}
 					</project>
 					<stage.enableJarClasses>true</stage.enableJarClasses>
 					<devserver.host>0.0.0.0</devserver.host>
