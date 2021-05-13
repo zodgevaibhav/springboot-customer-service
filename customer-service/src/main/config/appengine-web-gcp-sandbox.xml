@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app
+	xmlns="http://appengine.google.com/ns/1.0">
+	<threadsafe>true</threadsafe>
+	<version>0.0.1-SNAPSHOT</version>
+	<use-google-connector-j>true</use-google-connector-j>
+	<service>customer-service</service>
+	<runtime>java8</runtime>
+	<instance-class>F1</instance-class>
+	<system-properties>
+		<property name="environment" value="gcp-sandbox" />
+		<property name="logging.pattern.dateformat" value="yyyy-MM-dd HH:mm:ss.SSS" />
+		<property name="spring.datasource.url" value="jdbc:mysql://google/customerdb?cloudSqlInstance=terraform-learning-310418:us-central1:customerdb&amp;socketFactory=com.google.cloud.sql.mysql.SocketFactory" />
+		<property name="spring.datasource.username" value="vzodge" />
+		<property name="spring.datasource.password" value="password123" />
+		<property name="spring.jpa.hibernate.ddl-auto" value="update" />
+		<property name="spring.jpa.show-sql" value="true" />
+		<property name="spring.jpa.properties.hibernate.format_sql" value="true" />
+		<property name="spring.jpa.properties.hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect" />
+		<property name="spring.jackson.default-property-inclusion" value="NON_NULL" />
+		<property name="logging.level.org.hibernate.SQL" value="DEBUG" />
+		<property name="logging.level.org.springframework.jdbc.core.StatementCreatorUtils" value="TRACE" />
+	</system-properties>
+</appengine-web-app>
