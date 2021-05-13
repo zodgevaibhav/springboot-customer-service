@@ -10,7 +10,7 @@
 	<system-properties>
 		<property name="environment" value="local" />
 		<property name="logging.pattern.dateformat" value="yyyy-MM-dd HH:mm:ss.SSS" />
-		<property name="spring.datasource.url" value="jdbc:mysql://localhost:3306/recruitment_accelerator_program?autoReconnect=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true" />
+		<property name="spring.datasource.url" value="jdbc:mysql://localhost:3306/customerdb?autoReconnect=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true" />
 		<property name="spring.datasource.username" value="vzodge" />
 		<property name="spring.datasource.password" value="password123" />
 		<property name="spring.jpa.hibernate.ddl-auto" value="update" />
