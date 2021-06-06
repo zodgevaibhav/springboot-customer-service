@@ -1,0 +1,263 @@
+{
+	"info": {
+		"_postman_id": "0f0dcd26-3619-4f32-b93d-024038b1c69d",
+		"name": "CustomerService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddCustomerJson",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"customerId\":\"VVZ003\",\n\t\"firstName\":\"Swati\",\n\t\"lastName\":\"Zodge\",\n\t\"middleName\":\"V\",\n\t\"ssn\":\"11223\",\n\t\"gender\":\"Male\",\n\t\"occupation\":\"Job\",\n\t\"statu\":\"ACTIVE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/customer/AddCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"customer",
+						"AddCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddCustomerXML",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<AddCustomer>\n    <customerId>VVZ001</customerId>\n    <firstName>Swara</firstName>\n    <lastName>Zodge</lastName>\n    <middleName>V</middleName>\n    <ssn>11223</ssn>\n    <gender>Male</gender>\n    <occupation>Job</occupation>\n    <status>ACTIVE</status>\n</AddCustomer>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/customer/AddCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"customer",
+						"AddCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateCustomerXML",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<UpdateCustomer>\n    <customerId>VVZ001</customerId>\n    <firstName>Vaibhav</firstName>\n    <lastName>Zodge</lastName>\n    <middleName>V</middleName>\n    <ssn>11223</ssn>\n    <gender>Male</gender>\n    <occupation>Job</occupation>\n    <status>ACTIVE</status>\n</UpdateCustomer>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/customer/UpdateCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"customer",
+						"UpdateCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteCustomer",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<UpdateCustomer>\n    <customerId>VVZ001</customerId>\n    <firstName>Vaibhav</firstName>\n    <lastName>Zodge</lastName>\n    <middleName>V</middleName>\n    <ssn>11223</ssn>\n    <gender>Male</gender>\n    <occupation>Job</occupation>\n    <status>ACTIVE</status>\n</UpdateCustomer>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/customer/DeleteCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"customer",
+						"DeleteCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchCustomer",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<UpdateCustomer>\n    <customerId>VVZ001</customerId>\n    <firstName>Vaibhav</firstName>\n    <lastName>Zodge</lastName>\n    <middleName>V</middleName>\n    <ssn>11223</ssn>\n    <gender>Male</gender>\n    <occupation>Job</occupation>\n    <status>ACTIVE</status>\n</UpdateCustomer>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/customer/SearchCustomer/VVZ001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"customer",
+						"SearchCustomer",
+						"VVZ001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchAllCustomer",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/xml"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/customer/SearchAllCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"customer",
+						"SearchAllCustomer"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

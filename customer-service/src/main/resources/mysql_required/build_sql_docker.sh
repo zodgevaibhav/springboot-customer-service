@@ -1,1 +1,1 @@
-docker build . -t customerdb
+docker build . -t localhost/customerdb

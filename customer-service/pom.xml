@@ -5,7 +5,6 @@
 	<groupId>org.openvz</groupId>
 	<artifactId>customer-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -15,10 +14,6 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<spring-cloud.version>2020.0.1</spring-cloud.version>
-		<gcp.projectId>terraform-learning-310418</gcp.projectId>
-		<appengine.config.path>src/main/config</appengine.config.path>
-		<maven.test.skip>false</maven.test.skip>
 	</properties>
 
 	<dependencies>
@@ -57,88 +52,37 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.24</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.cloud.sql</groupId>
-			<artifactId>mysql-socket-factory</artifactId>
-			<version>1.2.2</version>
-		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
+		<plugin>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+		</plugin>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<!-- <plugin> <groupId>com.spotify</groupId> <artifactId>dockerfile-maven-plugin</artifactId> 
-				<version>1.4.13</version> <executions> <execution> <id>default</id> <phase>install</phase> 
-				<goals> <goal>build</goal> </goals> </execution> </executions> <configuration> 
-				<pullNewerImage>false</pullNewerImage> <repository>localhost/${project.artifactId}</repository> 
-				<tag>${project.version}</tag> <buildArgs> <JAR_FILE>${project.build.finalName}.jar</JAR_FILE> 
-				</buildArgs> </configuration> </plugin> -->
-
-			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>appengine-maven-plugin</artifactId>
-				<version>2.2.0</version>
-				<configuration>
-					<enableJarClasses>false</enableJarClasses>
-					<project>
-						${gcp.projectId}
-					</project>
-					<stage.enableJarClasses>true</stage.enableJarClasses>
-					<devserver.host>0.0.0.0</devserver.host>
-					<devserver.port>4200</devserver.port>
-					<cloudSdkHome>${GOOGLE_CLOUD_SDK_HOME}</cloudSdkHome>
-					<deploy.version>GCLOUD_CONFIG</deploy.version>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.8</version>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.13</version>
 				<executions>
 					<execution>
-						<phase>prepare-package</phase>
-						<configuration>
-							<target>
-								<copy file="src/main/config/${appengine.config.file}"
-									tofile="src/main/webapp/WEB-INF/appengine-web.xml"
-									overwrite="true" force="true" />
-							</target>
-						</configuration>
+						<id>default</id>
+						<phase>install</phase>
 						<goals>
-							<goal>run</goal>
+							<goal>build</goal>
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<pullNewerImage>false</pullNewerImage>
+					<repository>localhost/${project.artifactId}</repository>
+					<tag>${project.version}</tag>
+					<buildArgs>
+						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+					</buildArgs>
+				</configuration>
 			</plugin>
-
 		</plugins>
 
 
 	</build>
-
-	<profiles>
-		<profile>
-			<id>local</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<appengine.config.file>appengine-web-local.xml</appengine.config.file>
-			</properties>
-		</profile>
-		<profile>
-			<id>gcp-sandbox</id>
-			<properties>
-				<appengine.config.file>appengine-web-gcp-sandbox.xml</appengine.config.file>
-			</properties>
-		</profile>
-	</profiles>
 </project>
