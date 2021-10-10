@@ -8,8 +8,8 @@ spec:
     app: customer-service
   ports:
   - protocol: TCP
-    port: 8080
-    nodePort: 30081
+    port: 8081
+    nodePort: 30000
   type: NodePort
 ---
 apiVersion: apps/v1
@@ -32,3 +32,16 @@ spec:
           imagePullPolicy: Never
           ports:
           - containerPort: 8081
+        - name: customer-service-db
+          env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: password
+          - name: MYSQL_USER
+            value: "vzodge"
+          - name: MYSQL_PASSWORD
+            value: "password123"
+
+          image: localhost/customerdb:latest
+          imagePullPolicy: Never
+          ports:
+          - containerPort: 33040
