@@ -18,12 +18,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class ResponseBodyAdviceAdapterImpl implements ResponseBodyAdvice<Object>{
 
 	Logger logger = LoggerFactory.getLogger(RequestBodyAdviceAdapterImpl.class);
-
 	
 	@Override
 	public Object beforeBodyWrite(Object arg0, MethodParameter arg1, MediaType arg2,
 			Class<? extends HttpMessageConverter<?>> arg3, ServerHttpRequest arg4, ServerHttpResponse arg5) {
-
+		
 		try {
 			if(arg2.toString().contains("xml"))
 				logger.info(PojoToXml.toString(arg0));
@@ -33,14 +32,11 @@ public class ResponseBodyAdviceAdapterImpl implements ResponseBodyAdvice<Object>
 				logger.error("!!!!!!!!!! Unexpected content type detected "+arg5.getHeaders().getContentType().toString());
 		} catch (JsonProcessingException e) {
 			logger.error("!!!!!!!!!! Unable to print response message "+e.getLocalizedMessage());
-		}
-		
+		}		
 		return arg0;
 	}
 
 	@Override
 	public boolean supports(MethodParameter arg0, Class<? extends HttpMessageConverter<?>> arg1) {
-
-		
 		return true;
 	}}

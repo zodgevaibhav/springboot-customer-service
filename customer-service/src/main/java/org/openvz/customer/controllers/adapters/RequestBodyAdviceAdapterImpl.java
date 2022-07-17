@@ -24,7 +24,6 @@ public class RequestBodyAdviceAdapterImpl extends RequestBodyAdviceAdapter{
 		// TODO Auto-generated method stub
 		return true;
 	}
-
 	@Override
 	public Object afterBodyRead(Object body, HttpInputMessage inputMessage, MethodParameter parameter, Type targetType,
 			Class<? extends HttpMessageConverter<?>> converterType) {
@@ -42,5 +41,4 @@ public class RequestBodyAdviceAdapterImpl extends RequestBodyAdviceAdapter{
 		
 		return super.afterBodyRead(body, inputMessage, parameter, targetType, converterType);
 	}
-
 }
