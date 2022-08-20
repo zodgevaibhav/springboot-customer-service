@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: customerdb
+  name: customerdb-service
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    app: customerdb
+  clusterIP: None
+    
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customerdb
+  labels:
+    app: customerdb
+spec:
+  selector: 
+    matchLabels:
+      app: customerdb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: customerdb
+      name: customerdb-service
+
+      
+    spec:
+      containers:
+      - image: localhost/customerdb:latest
+        name: customerdb     
+                
+        ports:
+        - containerPort: 3306
+          name: customerdb      

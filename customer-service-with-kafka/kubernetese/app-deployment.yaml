@@ -1,0 +1,47 @@
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: customer-service
+spec:
+  selector:
+    app: customer-service
+  ports:
+  - protocol: TCP
+    port: 8081
+    nodePort: 30000
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-service
+spec:
+  selector:
+      matchLabels:
+        app: customer-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: customer-service
+    spec:
+      containers:
+        - name: customer-service
+          image: localhost/customer-service:0.0.1-SNAPSHOT
+          imagePullPolicy: Never
+          ports:
+          - containerPort: 8081
+        - name: customer-service-db
+          env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: password
+          - name: MYSQL_USER
+            value: "vzodge"
+          - name: MYSQL_PASSWORD
+            value: "password123"
+
+          image: localhost/customerdb:latest
+          imagePullPolicy: Never
+          ports:
+          - containerPort: 33040
