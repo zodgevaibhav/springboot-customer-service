@@ -29,7 +29,7 @@ public class ResponseBodyAdviceAdapterImpl implements ResponseBodyAdvice<Object>
 			else if(arg2.toString().contains("json"))
 				logger.info(PojoToJson.toString(arg0));
 			else
-				logger.error("!!!!!!!!!! Unexpected content type detected "+arg5.getHeaders().getContentType().toString());
+				if(null!=arg5.getHeaders().getContentType())logger.error("!!!!!!!!!! Unexpected content type detected "+arg5.getHeaders().getContentType().toString());
 		} catch (JsonProcessingException e) {
 			logger.error("!!!!!!!!!! Unable to print response message "+e.getLocalizedMessage());
 		}		
