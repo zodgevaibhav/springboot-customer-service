@@ -1,0 +1,9 @@
+@startuml
+
+bff --> auth_service :Auth request
+auth_service --> bff :\nAuth response
+
+bff --> customer_service : \n Add/Edit/Delete Customer Request
+customer_service --> bff :\n Add/Edit/Delete Customer Response
+
+@enduml

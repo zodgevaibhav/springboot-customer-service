@@ -12,17 +12,4 @@ Grafana JSON Report ID = 4701
 
 ##Plant UML Sample "Sequence Diagram"
 
-'''plantuml
-
-
-@startuml
-
-bff --> auth_service :Auth request
-auth_service --> bff :\nAuth response
-
-bff --> customer_service : \n Add/Edit/Delete Customer Request
-customer_service --> bff :\n Add/Edit/Delete Customer Response
-
-@enduml
-
-'''
+![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/zodgevaibhav/springboot-customer-service/master/customer-service/src/main/resources/sequence_diagram.uml)
